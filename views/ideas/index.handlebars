@@ -1,0 +1,27 @@
+{{#each ideas}}
+
+<div class="content-list">
+    <div class="card card-body md-2">
+        <h4>{{title}}</h4>
+        <p>{{details}}</p>
+        <a href="/ideas/edit/{{id}}" class="btn btn-dark btn-block">编辑</a>
+        <form action="/ideas/{{id}}?_method=DELETE" method="POST">
+            <input type="hidden" name="method" value="DELETE">
+            <input type="submit" class="btn btn-danger btn-block" value="删除">
+        </form>
+    </div>
+</div>
+
+{{else}}
+
+<div class="container">
+    <p>当前没有发布信息</p>
+</div>
+
+{{/each}}
+
+<style>
+    .content-list .card {
+        margin-bottom: 10px;
+    }
+</style>
